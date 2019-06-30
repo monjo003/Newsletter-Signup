@@ -38,7 +38,7 @@ app.post("/", function(req,res) {
      url: "https://us3.api.mailchimp.com/3.0/lists/f2a294fa07",   // url i want to send a req to
      method: "POST",   // specifing how we want our req to be processed
      headers: {
-       "Authorization" : "monjo003 0d8e3c406253bca52edc2626de233365-us3 "  // any string and the api key for the authorization
+       "Authorization" : "helen 0d8e3c406253bca52edc2626de233365-us3"  // any string and the api key for the authorization
      },
      body: jsonData    // content
    };
@@ -47,23 +47,25 @@ app.post("/", function(req,res) {
 
 request(options, function(error, response, body){
   if(error) {
-     console.log(error);
+     res.sendfile(__dirname + "/failure.html");
   }
   else{
-    console.log(response.statusCode);
+   if(response.statusCode === 200) {
+     res.sendFile(__dirname + "/success.html");
+   } else {
+     res.sendfile(__dirname + "/failure.html");
+   }
+
   }
 });
 
 
 });
 
+app.post("/failure", function(req, res){
+  res.redirect("/");
+});
 
 app.listen(3000, function() {
   console.log("Server is running on port 3000");
 });
-
-
-// api key = 0d8e3c406253bca52edc2626de233365-us3
-
-//list id
-// f2a294fa07
