@@ -38,7 +38,7 @@ app.post("/", function(req,res) {
      url: "https://us3.api.mailchimp.com/3.0/lists/f2a294fa07",   // url i want to send a req to
      method: "POST",   // specifing how we want our req to be processed
      headers: {
-       "Authorization" : "helen 0d8e3c406253bca52edc2626de233365-us3"  // any string and the api key for the authorization
+       "Authorization" : "helen 110edcde0a60c009e5950bf03a2ab483-us3"  // any string and the api key for the authorization
      },
      body: jsonData    // content
    };
